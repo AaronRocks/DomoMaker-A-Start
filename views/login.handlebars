@@ -17,7 +17,9 @@
       <input id="user" type="text" name="username" placeholder="username"/>
       <label for="pass">Password: </label>
       <input id="pass" type="password" name="pass" placeholder="password"/>
+      <input type="hidden" name="_csrf" value={{csrfToken}} />
       <input class="formSubmit" type="submit" value="Sign In" />
+      {{!-- <a id='loginSubmit' href='#' class="formSubmit">Sign In</a> --}}
     </form>
   </section>
   <div id="domoMessage"><img id="speech" src="/assets/img/speech.png" alt="speech box"/>
