@@ -1,4 +1,4 @@
-const requiresLonin = (req, res, next) => {
+const requiresLogin = (req, res, next) => {
   if (!req.session.account) {
     return res.redirect('/');
   }
@@ -21,7 +21,7 @@ const requiresSecure = (req, res, next) => {
 
 const bypassSecure = (req, res, next) => next();
 
-module.exports.requiresLonin = requiresLonin;
+module.exports.requiresLogin = requiresLogin;
 module.exports.requiresLogout = requiresLogout;
 
 if (process.env.NODE_ENV === 'production') {

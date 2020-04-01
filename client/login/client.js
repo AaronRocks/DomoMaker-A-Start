@@ -1,6 +1,5 @@
 const handleLogin = (e) =>{
     e.preventDefault();
-    console.log('running');
 
     $("#domoMessage").animate({width:'hide'}, 350);
 
@@ -9,7 +8,7 @@ const handleLogin = (e) =>{
         return false;
     }
 
-    console.log($("input[name=_csrf]").val());
+    //console.log($("input[name=_csrf]").val());
 
     sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize(), redirect);
 
@@ -18,7 +17,6 @@ const handleLogin = (e) =>{
 
 const handleSignup = (e) =>{
     e.preventDefault();
-    console.log("running");
 
     $("#domoMessage").animate({width:'hide'}, 350);
 
@@ -31,7 +29,7 @@ const handleSignup = (e) =>{
         handleError("RAWR! Passwords do not match");
         return false;
     }
-    
+
     sendAjax("POST", $("#signupForm").attr('action'), $("#signupForm").serialize(), redirect);
 
     return false;
@@ -49,7 +47,7 @@ const LoginWindow = (props) => {
             <input id="user" type="text" name="username" placeholder="username"/>
             <label htmlFor="pass">Password: </label>
             <input id='pass' type="password" name="pass" placeholder="password" />
-            <input type="hidden" name="_csrf" cale={props.csrf} />
+            <input type="hidden" name="_csrf" value={props.csrf} />
             <input className="formSubmit" type="submit" value="Sign in" />
         </form>
     );
@@ -69,7 +67,7 @@ const SignupWindow = (props) => {
             <input id='pass' type="password" name="pass" placeholder="password" />
             <label htmlFor="pass2">Password: </label>
             <input id='pass2' type="password" name="pass2" placeholder="retype password" />
-            <input type="hidden" name="_csrf" cale={props.csrf} />
+            <input type="hidden" name="_csrf" value={props.csrf} />
             <input className="formSubmit" type="submit" value="Sign Up" />
         </form>
     );

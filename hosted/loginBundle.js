@@ -2,7 +2,6 @@
 
 var handleLogin = function handleLogin(e) {
   e.preventDefault();
-  console.log('running');
   $("#domoMessage").animate({
     width: 'hide'
   }, 350);
@@ -10,16 +9,15 @@ var handleLogin = function handleLogin(e) {
   if ($("#user").val() == '' || $("#pass").val == '') {
     handleError("RAWR! Username or Password is empty");
     return false;
-  }
+  } //console.log($("input[name=_csrf]").val());
 
-  console.log($("input[name=_csrf]").val());
+
   sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize(), redirect);
   return false;
 };
 
 var handleSignup = function handleSignup(e) {
   e.preventDefault();
-  console.log("running");
   $("#domoMessage").animate({
     width: 'hide'
   }, 350);
@@ -63,7 +61,7 @@ var LoginWindow = function LoginWindow(props) {
     }), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
-      cale: props.csrf
+      value: props.csrf
     }), /*#__PURE__*/React.createElement("input", {
       className: "formSubmit",
       type: "submit",
@@ -104,7 +102,7 @@ var SignupWindow = function SignupWindow(props) {
     }), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
-      cale: props.csrf
+      value: props.csrf
     }), /*#__PURE__*/React.createElement("input", {
       className: "formSubmit",
       type: "submit",

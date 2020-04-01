@@ -85,8 +85,6 @@ const getToken = (request, response) => {
     csrfToken: req.csrfToken(),
   };
 
-  console.log(csrfJSON);
-
   res.json(csrfJSON);
 
 };
